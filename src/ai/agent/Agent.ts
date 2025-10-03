@@ -4,9 +4,11 @@ import parseXmlFunctionCalls from "../../utils/agent/parseXmlFunctionCalls.ts";
 import { Tool } from "../../utils/agent/tool.ts";
 import toolsToSystemPrompt from "../../utils/agent/toolsToSystemPrompt.ts";
 import WebLLM from "../llm/WebLLM.ts";
+import GeminiLLM from "../llm/GeminiLlm.ts";
 
 class Agent {
-  private llm = new WebLLM();
+  //private llm = new WebLLM();
+  private llm = new GeminiLLM();
 
   private tools: Record<string, Tool> = {};
 
