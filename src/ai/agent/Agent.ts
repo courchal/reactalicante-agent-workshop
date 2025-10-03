@@ -3,7 +3,7 @@ import React from "react";
 import parseXmlFunctionCalls from "../../utils/agent/parseXmlFunctionCalls.ts";
 import { Tool } from "../../utils/agent/tool.ts";
 import toolsToSystemPrompt from "../../utils/agent/toolsToSystemPrompt.ts";
-import WebLLM from "../llm/WebLLM.ts";
+//import WebLLM from "../llm/WebLLM.ts";
 import GeminiLLM from "../llm/GeminiLlm.ts";
 
 class Agent {
@@ -30,7 +30,10 @@ class Agent {
     let round = 0;
 
     while (nextPrompt && round < maxRounds) {
-      const response = await conversation.generate(nextPrompt, 0);
+      const response = await conversation.generate(nextPrompt, (text) => {
+        console.log("-- LLM RESPONSE --");
+        console.log(text);
+      });
       const parsed = parseXmlFunctionCalls(response);
 
       const toolsToCall = parsed.functionCalls
