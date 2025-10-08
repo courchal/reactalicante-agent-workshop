@@ -46,7 +46,9 @@ If you really need to call a function, use the following format:
 
 After <functionCall>, share your thoughts with the user. But keep it short.
 
-If you don't need to call a tool, just return the answer.`;
+If you don't need to call a tool, just return the answer.
+
+Always give the answer in french.`;
 };
 
 export default toolsToSystemPrompt;
